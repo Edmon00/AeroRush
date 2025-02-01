@@ -52,7 +52,7 @@
         android:layout_margin="16dp"
         android:layout_alignParentRight="true"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnVolume"
         android:layout_width="77dp"
         android:layout_height="wrap_content"

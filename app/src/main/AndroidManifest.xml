@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".MiddleActivity"
+            android:exported="false" />
+        <activity
             android:name=".SigninActtivity"
             android:exported="false" />
         <activity
