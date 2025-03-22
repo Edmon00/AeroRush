@@ -97,7 +97,7 @@ public class Flight {
         return flight2;
     }
     Rect getCollisionShape(){
-        return new Rect(x, y, x - width, y - height);
+        return new Rect(x, y, x + width, y + height);
     }
 
     Bitmap getDead(){
