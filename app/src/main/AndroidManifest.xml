@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".BirdSelection2"
+            android:exported="false" />
+        <activity
+            android:name=".GameActivity2"
+            android:screenOrientation="landscape"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".BirdSelection"
+            android:exported="false" />
+        <activity
             android:name=".MiddleActivity"
             android:exported="false" />
         <activity

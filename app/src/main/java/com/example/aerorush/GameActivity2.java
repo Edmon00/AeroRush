@@ -1,50 +1,53 @@
-package com.example.aerorush;
+ package com.example.aerorush;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
-public class GameActivity extends AppCompatActivity {
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-    private GameView gameView;
+public class GameActivity2 extends AppCompatActivity {
+
+    private GameView2 gameView2;
     private Bird bird;
     public static int  birdType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //setContentView(R.layout.activity_game2);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Point point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
 
-        gameView = new GameView(this, point.x, point.y);
-        setContentView(gameView);
+        gameView2 = new GameView2(this, point.x, point.y);
+        setContentView(gameView2);
 
-         birdType = getIntent().getIntExtra("BIRD_TYPE", 2);
+        birdType = getIntent().getIntExtra("BIRD_TYPE", 2);
 
-        Log.d("GameActivity", "Context in onCreate: " + GameActivity.this);
+        Log.d("GameActivity", "Context in onCreate: " + GameActivity2.this);
         Log.d("GameActivity", "Creating Bird object with birdType: " + birdType);
 
-        bird = new Bird(GameActivity.this, birdType);
+        bird = new Bird(GameActivity2.this, birdType);
+
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        gameView.pause();
+        gameView2.pause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        gameView.resume();
+        gameView2.resume();
     }
 }

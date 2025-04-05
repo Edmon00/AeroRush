@@ -25,7 +25,13 @@ public class MiddleActivity extends AppCompatActivity {
         findViewById(R.id.play1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MiddleActivity.this, GameActivity.class));
+                startActivity(new Intent(MiddleActivity.this, BirdSelection.class));
+            }
+        });
+        findViewById(R.id.play2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MiddleActivity.this, BirdSelection2.class));
             }
         });
 

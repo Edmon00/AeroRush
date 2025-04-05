@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import  static com.example.aerorush.GameActivity.birdType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,16 +37,20 @@ public class GameView extends SurfaceView implements Runnable {
     private Bird[] birds;
     private Paint paint;
     private Random random;
+    int birdType;
     public static float screenRatioX, screenRatioY;
     public GameView(GameActivity activity, int screenX, int screenY) {
+
         super(activity);
         this.activity = activity;
-
+        Bird bird = new Bird(getContext(), birdType);
         this.screenX = screenX;
         this.screenY = screenY;
         screenRatioX = 1920f / screenX;
         screenRatioY = 1080f / screenY;
 
+
+        birdType = ((GameActivity) activity).getIntent().getIntExtra("BIRD_TYPE", 1);
 
         background1 = new Background(screenX, screenY, getResources());
         background2 = new Background(screenX, screenY, getResources());
@@ -54,27 +59,27 @@ public class GameView extends SurfaceView implements Runnable {
         background2.x = screenX;
         prefs = activity.getSharedPreferences("game", Context.MODE_PRIVATE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .build();
-            soundPool = new SoundPool.Builder()
-                    .setAudioAttributes(audioAttributes)
-                    .build();
-        }else{
-            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        }
-        sound = soundPool.load(activity,R.raw.shoot, 1 );
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+//            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+//                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+//                    .setUsage(AudioAttributes.USAGE_GAME)
+//                    .build();
+//            soundPool = new SoundPool.Builder()
+//                    .setAudioAttributes(audioAttributes)
+//                    .build();
+//        }else{
+//            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+//        }
+//        sound = soundPool.load(activity,R.raw.shoot, 1 );
         paint = new Paint();
         paint.setTextSize(128);
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.GRAY);
 
         birds = new Bird[4];
 
         for (int i = 0; i < 4; i++ ){
-            Bird bird = new Bird(getResources());
-            birds[i] = bird;
+            int birdType = i + 1;
+            birds[i] = new Bird(getContext(), birdType);
         }
         random = new Random();
 
@@ -136,14 +141,22 @@ public class GameView extends SurfaceView implements Runnable {
             if (bird.x + bird.width < 0){
 
                 if (!bird.wasShot){
-                    isGameOver = true;
+                    if (score > 1){
+                        score = score - 2;
+
+                    }else{
+                        score = score;
+                    }
 
                 }
                 int bound = (int) (30 * screenRatioX);
                 bird.speed = random.nextInt(bound);
 
-                if (bird.speed < 10 * screenRatioX){
-                    bird.speed = (int) (10 * screenRatioX);
+                if (bird.speed == 20 ){
+                    bird.speed = (int) (10);
+                }
+                if (bird.speed < 10 ){
+                    bird.speed = (int) (10);
                 }
 
                bird.x = screenX;
@@ -215,8 +228,8 @@ private void draw() {
         if (isGameOver) {
             canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint);
             saveIfHighScore();
-            waitExit();
             getHolder().unlockCanvasAndPost(canvas);
+            waitExit();
             return;
         }
 
@@ -232,7 +245,7 @@ private void draw() {
 
     private void waitExit() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             activity.startActivity(new Intent(activity, MainActivity.class));
             activity.finish();
         } catch (InterruptedException e) {
@@ -292,4 +305,6 @@ private void draw() {
     bullet.y = flight.y + (flight.height / 2);
     bullets.add(bullet);
     }
+
+
 }

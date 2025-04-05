@@ -1,0 +1,75 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
+
+    <!-- Main Layout (Buttons) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp">
+
+        <!-- First Row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/crowcart"
+                android:scaleType="fitCenter"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="5dp"
+                android:contentDescription="agrav"/>
+
+            <ImageButton
+                android:id="@+id/button2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/arcivqart"
+                android:scaleType="fitCenter"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="5dp"
+                android:contentDescription="arciv"
+                />
+        </LinearLayout>
+
+        <!-- Second Row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/button3"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/chayqart"
+                android:scaleType="fitCenter"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="5dp"
+                android:contentDescription="chay"/>
+
+            <ImageButton
+                android:id="@+id/button4"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/karmiricart"
+                android:scaleType="fitCenter"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_margin="5dp"
+                android:contentDescription="karmir"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
