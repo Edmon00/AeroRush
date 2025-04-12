@@ -14,7 +14,7 @@ public class GameActivity extends AppCompatActivity {
 
     private GameView gameView;
     private Bird bird;
-    public static int  birdType;
+    public static int  birdType1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +28,12 @@ public class GameActivity extends AppCompatActivity {
         gameView = new GameView(this, point.x, point.y);
         setContentView(gameView);
 
-         birdType = getIntent().getIntExtra("BIRD_TYPE", 2);
+         birdType1 = getIntent().getIntExtra("BIRD_TYPE", 2);
 
         Log.d("GameActivity", "Context in onCreate: " + GameActivity.this);
-        Log.d("GameActivity", "Creating Bird object with birdType: " + birdType);
+        Log.d("GameActivity", "Creating Bird object with birdType: " + birdType1);
 
-        bird = new Bird(GameActivity.this, birdType);
+        bird = new Bird(GameActivity.this, birdType1);
     }
 
     @Override

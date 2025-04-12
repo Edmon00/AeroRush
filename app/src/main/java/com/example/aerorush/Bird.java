@@ -11,9 +11,12 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
 import android.graphics.Rect;
 import android.util.Log;
-import  static com.example.aerorush.GameActivity.birdType;
+import  static com.example.aerorush.GameActivity2.birdType;
+import  static com.example.aerorush.GameActivity.birdType1;
+import  static com.example.aerorush.MiddleActivity.mode;
 
 public class Bird {
     public int speed = 20;
@@ -30,6 +33,11 @@ public class Bird {
 
 
     public void setBirdType(int birdType, Resources res) {
+        if (mode) {
+            birdType = GameActivity2.birdType;
+        }else{
+            birdType = GameActivity.birdType1;
+        }
 
         switch (birdType) {
             case 1:
@@ -84,6 +92,7 @@ public class Bird {
         }
         y = -height;
     }
+
 
     Bitmap getBird() {
         frameCounter++;

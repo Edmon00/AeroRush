@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import static com.example.aerorush.GameView.screenRatioX;
 import static com.example.aerorush.GameView.screenRatioY;
+import static com.example.aerorush.GameActivity2.birdType;
 
 import java.util.ArrayList;
 import java.util.List;

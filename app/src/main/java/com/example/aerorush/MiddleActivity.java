@@ -14,6 +14,8 @@ import static com.example.aerorush.MainActivity.isPlaying;
 import static com.example.aerorush.MainActivity.mediaPlayer;
 
 public class MiddleActivity extends AppCompatActivity {
+    public static boolean mode = false;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -21,6 +23,7 @@ public class MiddleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_middle);
+
 
         findViewById(R.id.play1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +34,7 @@ public class MiddleActivity extends AppCompatActivity {
         findViewById(R.id.play2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mode = true;
                 startActivity(new Intent(MiddleActivity.this, BirdSelection2.class));
             }
         });

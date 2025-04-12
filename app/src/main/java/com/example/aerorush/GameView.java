@@ -15,7 +15,7 @@ import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import  static com.example.aerorush.GameActivity.birdType;
+import  static com.example.aerorush.GameActivity.birdType1;
 
 import java.util.ArrayList;
 import java.util.List;
