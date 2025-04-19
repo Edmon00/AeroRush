@@ -129,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
         highScoreTxt.setText("High Score: " + prefs.getInt("highscore", 0));
 
         TextView highLevelTxt = findViewById(R.id.highLevelTxt);
-        highLevelTxt.setText("High Level: " + prefs.getInt("highLevel", 0));
+        highLevelTxt.setText("High Level: " + prefs.getInt("best_level", 0));
 
         TextView lastLevelTxt = findViewById(R.id.LastLevelTxt);
-        lastLevelTxt.setText("Last Level: " + prefs.getInt("lastLevel", 0));
+        lastLevelTxt.setText("Last Level: " + prefs.getInt("last_level", 0));
 
         // Проверка состояния звука (mute)
         isMute = prefs.getBoolean("isMute", false);

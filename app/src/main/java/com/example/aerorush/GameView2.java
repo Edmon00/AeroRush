@@ -23,6 +23,7 @@ public class GameView2 extends SurfaceView implements Runnable {
 
     private GameActivity2 activity;
     private int level = 1;
+    private long levelUpTime = 0;
     private int nextLevelScore = 10, highSpeed = 8, lowSpeed = 5;
     private Thread thread;
     private int screenX, screenY, score = 0;
@@ -38,6 +39,8 @@ public class GameView2 extends SurfaceView implements Runnable {
     private Random random;
 
     private Background background1, background2;
+    private boolean levelUp = false;
+
     public GameView2(Activity activity, int screenX, int screenY) {
         super(activity);
         this.activity = (GameActivity2) activity;
@@ -159,6 +162,7 @@ public class GameView2 extends SurfaceView implements Runnable {
                 nextLevelScore += 5;
                 lowSpeed += 3;
                 highSpeed += 3;
+                waitLevel();
 
                 updateBestLevel();
 
@@ -172,6 +176,11 @@ public class GameView2 extends SurfaceView implements Runnable {
         }
 
     }
+
+    private void waitLevel() {
+        levelUp = true;
+        levelUpTime = System.currentTimeMillis();
+    }
     private void draw(){
         if (getHolder().getSurface().isValid()) {
             Canvas canvas = getHolder().lockCanvas();
@@ -181,10 +190,21 @@ public class GameView2 extends SurfaceView implements Runnable {
                 canvas.drawBitmap(bird.getBird(), bird.x, bird.y, paint);
             }
             canvas.drawText("Score: " + score + "   Level: " + level, screenX / 2 - 500, 164, paint);
-
+            if (levelUp) {
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - levelUpTime < 2000) {
+                    Paint levelPaint = new Paint();
+                    levelPaint.setTextSize(150);
+                    levelPaint.setColor(Color.YELLOW);
+                    levelPaint.setTextAlign(Paint.Align.CENTER);
+                    canvas.drawText("LEVEL " + level, screenX / 2, screenY / 2, levelPaint);
+                } else {
+                    levelUp = false;
+                }
+            }
             if (isGameOver) {
                 canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint);
-                saveIfHighScore();
+                //saveIfHighScore();
                 updateBestLevel();
                 getHolder().unlockCanvasAndPost(canvas);
                 waitExit();
@@ -211,16 +231,16 @@ public class GameView2 extends SurfaceView implements Runnable {
         }
     }
 
-    private void saveIfHighScore() {
-        if(prefs.getInt("highscore", 0)< score){
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("highscore", score);
-            editor.apply();
-
-        }
-    }
+//    private void saveIfHighScore() {
+//        if(prefs.getInt("highscore", 0)< score){
+//            SharedPreferences.Editor editor = prefs.edit();
+//            editor.putInt("highscore", score);
+//            editor.apply();
+//
+//        }
+//    }
     private void updateBestLevel() {
-        SharedPreferences prefs = activity.getSharedPreferences("game", Context.MODE_PRIVATE);
+        //SharedPreferences prefs = activity.getSharedPreferences("game", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         int bestLevel = prefs.getInt("best_level", 1);
         if (level > bestLevel) {

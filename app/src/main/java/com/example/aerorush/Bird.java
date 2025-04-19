@@ -69,10 +69,10 @@ public class Bird {
         if (bird1 == null || bird2 == null || bird3 == null || bird4 == null) {
             Log.e("Bird", "Error: One or more bird images failed to load.");
             // Optionally, set a default image if any of them is null
-            bird1 = BitmapFactory.decodeResource(res, R.drawable.bird1);
-            bird2 = BitmapFactory.decodeResource(res, R.drawable.bird2);
-            bird3 = BitmapFactory.decodeResource(res, R.drawable.bird3);
-            bird4 = BitmapFactory.decodeResource(res, R.drawable.bird4);
+            bird1 = BitmapFactory.decodeResource(res, R.drawable.arciv);
+            bird2 = BitmapFactory.decodeResource(res, R.drawable.arciv1);
+            bird3 = BitmapFactory.decodeResource(res, R.drawable.arciv2);
+            bird4 = BitmapFactory.decodeResource(res, R.drawable.arciv1);
         }
 
         width = bird1.getWidth();
