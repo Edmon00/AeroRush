@@ -1,17 +1,13 @@
-package com.example.aerorush;
+package com.EdmonAntonyan.aerorush;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-
 
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -141,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // Приостановка воспроизведения музыки при уходе в фоновый режим
         if (isPlaying) {
             mediaPlayer.pause();
         }
@@ -150,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Восстановление воспроизведения музыки при возвращении в активное состояние
         if (!isMute) {
             mediaPlayer.start();
         }

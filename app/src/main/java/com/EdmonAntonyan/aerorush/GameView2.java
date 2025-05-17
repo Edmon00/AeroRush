@@ -1,4 +1,4 @@
-package com.example.aerorush;
+package com.EdmonAntonyan.aerorush;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,8 @@ import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
-import static com.example.aerorush.GameView.screenRatioX;
-import static com.example.aerorush.GameView.screenRatioY;
-import static com.example.aerorush.GameActivity2.birdType;
+import static com.EdmonAntonyan.aerorush.GameView.screenRatioX;
+import static com.EdmonAntonyan.aerorush.GameView.screenRatioY;
 
 import java.util.ArrayList;
 import java.util.List;

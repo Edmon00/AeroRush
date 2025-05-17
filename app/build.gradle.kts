@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -11,11 +12,11 @@ android {
         targetSdk = 35
         minSdk =21
     }
-    namespace = "com.example.aerorush"
+    namespace = "com.EdmonAntonyan.aerorush"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.aerorush"
+        applicationId = "com.EdmonAntonyan.aerorush"
         minSdk = 24
         //noinspection EditedTargetSdkVersion
         targetSdk = 35
@@ -59,6 +60,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

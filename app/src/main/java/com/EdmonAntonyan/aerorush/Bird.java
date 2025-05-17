@@ -1,22 +1,14 @@
-package com.example.aerorush;
+package com.EdmonAntonyan.aerorush;
 
-import static com.example.aerorush.GameView.screenRatioX;
-import static com.example.aerorush.GameView.screenRatioY;
-
-import static java.security.AccessController.getContext;
-
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import android.graphics.Rect;
 import android.util.Log;
-import  static com.example.aerorush.GameActivity2.birdType;
-import  static com.example.aerorush.GameActivity.birdType1;
-import  static com.example.aerorush.MiddleActivity.mode;
+
+import  static com.EdmonAntonyan.aerorush.MiddleActivity.mode;
 
 public class Bird {
     public int speed = 20;

@@ -1,4 +1,4 @@
-package com.example.aerorush;
+package com.EdmonAntonyan.aerorush;
 
 import android.content.Context;
 

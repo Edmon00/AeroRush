@@ -1,7 +1,7 @@
-package com.example.aerorush;
+package com.EdmonAntonyan.aerorush;
 
-import static com.example.aerorush.GameView.screenRatioX;
-import static com.example.aerorush.GameView.screenRatioY;
+import static com.EdmonAntonyan.aerorush.GameView.screenRatioX;
+import static com.EdmonAntonyan.aerorush.GameView.screenRatioY;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

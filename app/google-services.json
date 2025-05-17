@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "136842360763",
+    "project_id": "aerorushgame",
+    "storage_bucket": "aerorushgame.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136842360763:android:2e4ff541a839e24895b69e",
+        "android_client_info": {
+          "package_name": "com.EdmonAntonyan.aerorush"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4A5n_TZ0kJbjdpvP0kN9_FzYg8O4s_HU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
