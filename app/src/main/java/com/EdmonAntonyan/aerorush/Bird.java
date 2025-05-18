@@ -25,11 +25,11 @@ public class Bird {
 
 
     public void setBirdType(int birdType, Resources res) {
-        if (mode) {
-            birdType = GameActivity2.birdType;
-        }else{
-            birdType = GameActivity.birdType1;
-        }
+//        if (mode) {
+//            birdType = GameActivity2.birdType;
+//        }else{
+//            birdType = GameActivity.birdType1;
+//        }
 
         switch (birdType) {
             case 1:

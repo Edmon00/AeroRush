@@ -77,7 +77,7 @@ import android.widget.TextView;
 //}
 public class MainActivity extends AppCompatActivity {
 
-    public static MediaPlayer mediaPlayer;
+    //public static MediaPlayer mediaPlayer;
     public static boolean isPlaying = true;
     private boolean isMute;
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Инициализация MediaPlayer
-        mediaPlayer = MediaPlayer.create(this, R.raw.aerorushsong);
+        //mediaPlayer = MediaPlayer.create(this, R.raw.aerorushsong);
 
         // Настройка кнопки для включения/выключения звука
         ImageButton btnVolume = findViewById(R.id.btnVolume);
@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isPlaying) {
-                    mediaPlayer.pause();
+                    //mediaPlayer.pause();
                 } else {
-                    mediaPlayer.start();
+                   //mediaPlayer.start();
                 }
                 isPlaying = !isPlaying;
             }
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         if (isPlaying) {
-            mediaPlayer.pause();
+            //mediaPlayer.pause();
         }
     }
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (!isMute) {
-            mediaPlayer.start();
+            //mediaPlayer.start();
         }
     }
 }
