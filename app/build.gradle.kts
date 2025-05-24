@@ -44,7 +44,9 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
+
 }
 
 dependencies {
@@ -61,6 +63,10 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.firebase.auth)
+    implementation(libs.credentials)
+    implementation(libs.credentials.play.services.auth)
+    implementation(libs.googleid)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,14 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".AccountActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".LiderboardActivity"
+            android:exported="false"></activity>
+        <activity
             android:name=".BirdSelection2"
             android:exported="false" />
         <activity
             android:name=".GameActivity2"
-            android:screenOrientation="landscape"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".BirdSelection"
             android:exported="false" />
@@ -28,10 +37,10 @@
             android:name=".MiddleActivity"
             android:exported="false" />
         <activity
-            android:name=".SigninActtivity"
+            android:name=".RegistrActtivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".GameActivity"
@@ -46,6 +55,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

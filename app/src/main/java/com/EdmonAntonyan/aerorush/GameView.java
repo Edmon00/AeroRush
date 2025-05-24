@@ -299,6 +299,9 @@ private void draw() {
     bullet.y = flight.y + (flight.height / 2);
     bullets.add(bullet);
     }
+    public void setGoingUp(boolean goingUp) {
+        flight.isGoingUp = goingUp;
+    }
 
 
 }

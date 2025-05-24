@@ -37,8 +37,8 @@
         android:id="@+id/play1"/>
     <ImageButton
         android:id="@+id/btnVolume"
-        android:layout_width="77dp"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -46,7 +46,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="17dp"
+        android:background="@drawable/button_shape5"
         android:src="@drawable/baseline_volume_up_24"
-        android:text="Volume" />
+        />
 
 </RelativeLayout>

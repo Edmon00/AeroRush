@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,17 +14,7 @@
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true" />
 
-    <!-- Title Text -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aero Rush"
-        android:textSize="48sp"
-        android:textColor="#2626BA"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
 
-    <!-- Play Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,14 +24,13 @@
         android:textColor="#000000"
         android:id="@+id/play"
         android:layout_centerInParent="true"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="35dp"/>
 
     <!-- Login Button (Top Left) -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_shape"
-        android:text="Log in"
+        android:background="@drawable/button_shape2"
         android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:id="@+id/LoginSIgnup"
@@ -90,13 +81,41 @@
     <!-- Volume Button (Bottom Left) -->
     <ImageButton
         android:id="@+id/btnVolume"
-        android:layout_width="77dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="75dp"
+        android:layout_height="65dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_shape5"
+        android:contentDescription="none"
         android:src="@drawable/baseline_volume_up_24"
         android:text="Volume" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aero Rush"
+        android:textColor="#2626BA"
+        android:textSize="48sp"
+        android:layout_above="@id/play"
+        android:layout_centerHorizontal="true"
+
+      />
+
+    <Button
+        android:id="@+id/Leaderboard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="310dp"
+        android:layout_marginLeft="628dp"
+        android:layout_marginBottom="13dp"
+        android:backgroundTint="@color/Yellow"
+        android:contentDescription="none"
+        android:text="Liders" />
+
 
 </RelativeLayout>

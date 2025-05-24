@@ -3,9 +3,14 @@
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.WindowManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
  public class GameActivity2 extends AppCompatActivity {
 
@@ -16,14 +21,36 @@ import androidx.appcompat.app.AppCompatActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_game2);
+//        setContentView(gameView2);
+        setContentView(R.layout.activity_game2);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Point point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
 
         gameView2 = new GameView2(this, point.x, point.y);
-        setContentView(gameView2);
+
+        Button upBtn = findViewById(R.id.up_btn);
+        Button fireBtn = findViewById(R.id.fire_btn);
+
+        FrameLayout gameContainer = findViewById(R.id.game_container);
+        gameContainer.addView(gameView2, 0);
+
+        upBtn.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    gameView2.setGoingUp(true);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    gameView2.setGoingUp(false);
+                    break;
+            }
+            return true;
+        });
+
+        fireBtn.setOnClickListener(v -> {
+            gameView2.newBullet();
+        });
 
         birdType = getIntent().getIntExtra("BIRD_TYPE", 2);
 

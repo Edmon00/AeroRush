@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,14 +24,27 @@ public class MiddleActivity extends AppCompatActivity {
         findViewById(R.id.play1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MiddleActivity.this, BirdSelection.class));
+                startActivity(new Intent(MiddleActivity.this, GameActivity.class));
             }
         });
         findViewById(R.id.play2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mode = true;
-                startActivity(new Intent(MiddleActivity.this, BirdSelection2.class));
+                startActivity(new Intent(MiddleActivity.this, GameActivity2.class));
+            }
+        });
+        ImageButton volumebtn = findViewById(R.id.btnVolume);
+        volumebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (MyApp.isMusicPlaying()) {
+                    MyApp.stopMusic();
+                    volumebtn.setImageResource(R.drawable.baseline_volume_off_24);
+                } else {
+                    MyApp.playMusic(v.getContext());
+                    volumebtn.setImageResource(R.drawable.baseline_volume_up_24);
+                }
             }
         });
 
@@ -56,6 +70,10 @@ public class MiddleActivity extends AppCompatActivity {
 //
 //            }
 //        });
-
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MyApp.stopMusic();
     }
 }

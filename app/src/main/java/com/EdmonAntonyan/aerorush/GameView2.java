@@ -270,28 +270,31 @@ public class GameView2 extends SurfaceView implements Runnable {
             throw new RuntimeException(e);
         }
     }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                if (event.getX()< screenX / 2){
-                    flight.isGoingUp = true;
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                flight.isGoingUp = false;
-                if (event.getX() > screenX / 2){
-                    flight.toShoot++;
-                }
-                break;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        switch (event.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                if (event.getX()< screenX / 2){
+//                    flight.isGoingUp = true;
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                flight.isGoingUp = false;
+//                if (event.getX() > screenX / 2){
+//                    flight.toShoot++;
+//                }
+//                break;
+//        }
+//        return true;
+//    }
     public void newBullet() {
 
         Bullet bullet = new Bullet(getResources());
         bullet.x = flight.x + flight.width;
         bullet.y = flight.y + (flight.height / 2);
         bullets.add(bullet);
+    }
+    public void setGoingUp(boolean goingUp) {
+        flight.isGoingUp = goingUp;
     }
 }
